@@ -5,9 +5,3 @@ class ClearButton extends PaintFunction {
         this.contextDraft = contextDraft;
     };
 };
-$('#clear').on("click", function () {
-    contextReal.fillStyle = "white";
-    contextReal.fillRect(0, 0, canvasReal.width, canvasReal.height);
-    contextDraft.fillStyle = "white";
-    contextDraft.fillRect(0, 0, canvasReal.width, canvasReal.height);
-})

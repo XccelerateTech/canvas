@@ -21,7 +21,7 @@
     <section class='container-fluid' id='buttons'>
         <h1>Select your drawing method</h1>
         <div class='row'>
-            <div class="col-4">                    
+            <div class="col-4">
                 <p>Draw a Rectangle</p>
                 <button class='btn btn-primary' id='rectangle'>
                     <i class="fas fa-couch" title="Draw a square"></i>
@@ -30,16 +30,16 @@
             <div class="col-4">
                 <p>Draw some lines</p>
                 <button class='btn btn-secondary' id='line'>
-                    
+
                     <i class="fab fa-angrycreative" title="Draw a line"></i>
                 </button>
             </div>
             <div class="col-4">
                 <p>Clear the page</p>
-                    <button class='btn btn-danger' id='clear'>
-                            <i class="fas fa-broom"title="Clear the page"></i>
-                    </button>
-                </div>
+                <button class='btn btn-danger' id='clear'>
+                    <i class="fas fa-broom" title="Clear the page"></i>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -60,15 +60,22 @@
         // currentFunction = new DrawingLine(contextReal,contextDraft);
         currentFunction = new DrawingRectangle(contextReal, contextDraft);
 
-        $('#line').click(()=>{
+        $('#line').click(() => {
             currentFunction = new DrawingLine(contextReal, contextDraft)
         })
 
-        $('#rectangle').click(()=>{
+        $('#rectangle').click(() => {
             currentFunction = new DrawingRectangle(contextReal, contextDraft)
         })
 
+        $('#clear').on("click", function () {
+            contextReal.fillStyle = "white";
+            contextReal.fillRect(0, 0, canvasReal.width, canvasReal.height);
+            contextDraft.fillStyle = "white";
+            contextDraft.fillRect(0, 0, canvasReal.width, canvasReal.height);
 
+            currentFunction = new DrawingRectangle(contextReal, contextDraft)
+        })
     </script>
 </body>
 
